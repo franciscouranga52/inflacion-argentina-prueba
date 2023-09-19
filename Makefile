@@ -12,7 +12,7 @@ directories:
 	-mkdir data
 
 downloads:
-	curl "https://www.indec.gob.ar/ftp/cuadros/economia/sh_ipc_09_23.xls" -o tmp/inflation.json
+	curl "https://www.indec.gob.ar/ftp/cuadros/economia/sh_ipc_09_23.xls" -o data/inflation.csv
 #	curl "https://www.imf.org/external/datamapper/api/v1/countries" -o tmp/countries.json
 
 #freshdata:
