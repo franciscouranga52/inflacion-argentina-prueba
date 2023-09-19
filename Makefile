@@ -18,7 +18,7 @@ downloads:
 #freshdata:
 #	node imf_to_csv.js
 
-all: directories downloads #freshdata filecheck
+all: directories downloads filecheck #freshdata 
 
 clean:
 	-rm -rf ./data
