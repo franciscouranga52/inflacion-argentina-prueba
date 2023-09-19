@@ -18,6 +18,11 @@ downloads:
 #freshdata:
 #	node imf_to_csv.js
 
+filecheck:
+		curl "https://s3.amazonaws.com/media.johnkeefe.net/class-modules/inflation.csv" -o tmp/previous.csv
+		cmp --silent ./tmp/previous.csv ./data/inflation.csv || \
+		curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' $$SLACK_WEBHOOK
+
 all: directories downloads filecheck #freshdata 
 
 clean:
@@ -51,8 +56,3 @@ droughtmap:
 	npx mapshaper -i ./tmp/us_states.json ./tmp/drought.json combine-files \
 	-proj albersusa +PR \
 	-o format=svg ./data/droughtmap.svg
-
-filecheck:
-		curl "https://s3.amazonaws.com/media.johnkeefe.net/class-modules/inflation.csv" -o tmp/previous.csv
-		cmp --silent ./tmp/previous.csv ./data/inflation.csv || \
-		curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' $$SLACK_WEBHOOK
