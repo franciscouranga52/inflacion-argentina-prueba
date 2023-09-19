@@ -59,4 +59,3 @@ filecheck:
 		curl -X POST -H 'Content-type: application/json' \
 		--insecure \
 		--data '{"text":"The file you asked me to watch has changed!"}' $$SLACK_WEBHOOK
-
